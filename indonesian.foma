@@ -1,0 +1,35 @@
+define Alphabet [
+a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z ] ;
+
+define AssimDelRules [
+p -> m || %^N "<"* _ ,, %^N -> 0 || _ "<"* p ]
+.o.
+%^N -> m || _ "<"* [ b | f ]
+.o.
+[ t -> n || %^N "<"* _ ,, %^N -> 0 || _ "<"* t ]
+.o.
+%^N -> n || _ "<"* [ d | c | j | s y | z ]
+.o.
+[ s -> n y || %^N "<"* _ ,, %^N -> 0 || _ "<"* s ]
+.o.
+[ k -> n g || %^N "<"* _ ,, %^N -> 0 || _ "<"* k ]
+.o.
+%^N -> n g || _ "<"* [ a | e | i | o | u | g | h ]
+.o.
+%^N -> 0 || _ "<"* [ m | n | l | r | w | y ] ;
+
+read lexc < indonesian.lexc
+
+eliminate flag PREF
+
+define initialnet
+
+define intermediatenet initialnet .o. AssimDelRules ;
+
+define InsertHyphen [..] -> %- || %> _ %< ;
+
+define PreEq intermediatenet .o. %^R -> [Alphabet]* .o. InsertHyphen ;
+
+define RemoveBrackets "<"|">" -> 0 ;
+
+read regex _eq(PreEq,"<",">") .o. RemoveBrackets ;

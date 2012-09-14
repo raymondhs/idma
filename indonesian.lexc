@@ -1,0 +1,96 @@
+Multichar_Symbols
+
+! tag suffixes for the upper side
++Bare +-an +ke-an +per-an +peN-an
++meN- +meN-i +redup[-]
++meN-kan +meN[redup[-]] +meN[redup[-]]kan
+
+! flag diacritics
+@P.PREF.peN@ @R.PREF.peN@
+@P.PREF.ter@ @R.PREF.ter@
+@P.PREF.ber@ @R.PREF.ber@
+@P.PREF.per@ @R.PREF.per@
+@P.PREF.ke@ @R.PREF.ke@
+@P.PREF.redup[-]@ @R.PREF.redup[-]@
+@P.PREF.meN@ @R.PREF.meN@
+@P.PREF.meN[redup[-]]@ @R.PREF.meN[redup[-]]@
+@D.PREF@
+
+! morphophoneme
+^N ! underspecified nasal
+^R ! reduplication hyphen
+
+!********* end of Multichar_Symbols************
+
+LEXICON Root
+Prefixes ;
+
+LEXICON Prefixes
+Stems ;
+< [ 0 .x. p e "^N" ] "@P.PREF.peN@" > Stems ;
+< [ 0 .x. t e r ] "@P.PREF.ter@" > Stems ;
+< [ 0 .x. b e r ] "@P.PREF.ber@" > Stems ;
+< [ 0 .x. p e r ] "@P.PREF.per@" > Stems ;
+< [ 0 .x. k e ] "@P.PREF.ke@" > Stems ;
+< [ 0 .x. "<" ] "@P.PREF.redup[-]@" > Stems ;
+< [ 0 .x. m e "^N" ] "@P.PREF.meN@" > Stems ;
+< [ 0 .x. m e "^N" "<" ] "@P.PREF.meN[redup[-]]@" > Stems ;
+
+LEXICON Stems
+ajar bare ;
+ajar meN- ;
+ajar meN-kan ;
+capai meN- ;
+curah meN[redup[-]] ;
+dapat meN- ;
+baik redup[-] ;
+bagi -an ;
+bagi meN[redup[-]] ;
+baka meN- ;
+pakai meN- ;
+paksa meN[redup[-]] ;
+payah meN[redup[-]]kan ;
+taman meN- ;
+tampar meN[redup[-]] ;
+galah meN- ;
+kaji meN- ;
+kuyuh meN[redup[-]] ;
+salak meN- ;
+sama meN[redup[-]] ;
+maki meN- ;
+
+LEXICON bare
+< "+Bare":0 "@D.PREF@" > # ;
+
+LEXICON -an
+< [ "+-an" .x. a n ] "@D.PREF@" > # ;
+! simple suffix blocks all prefixes
+
+LEXICON ke-an
+< [ "+ke-an" .x. a n ] "@R.PREF.ke@" > # ;
+! circumfix requires ke-
+
+LEXICON per-an
+< [ "+per-an" .x. a n ] "@R.PREF.per@" > # ;
+
+LEXICON peN-an
+< [ "+peN-an" .x. a n ] "@R.PREF.peN@" > # ;
+
+LEXICON meN-
+< "+meN-":0 "@R.PREF.meN@" > # ;
+! require simple prefix, no phonological suffix
+
+LEXICON meN-i
+< "+meN-i":i "@R.PREF.meN@" > # ;
+
+LEXICON redup[-]
+< "+redup[-]" .x. ">" "<" "^R" ">" "@R.PREF.redup[-]@" > # ;
+
+LEXICON meN-kan
+< [ "+meN-kan" .x. k a n ] "@R.PREF.meN@" > # ;
+
+LEXICON meN[redup[-]]
+< [ "+meN[redup[-]]" .x. ">" "<" "^R" ">" ] "@R.PREF.meN[redup[-]]@" > # ;
+
+LEXICON meN[redup[-]]kan
+< [ "+meN[redup[-]]kan" .x. ">" "<" "^R" ">" k a n ] "@R.PREF.meN[redup[-]]@" > # ;
