@@ -3,7 +3,7 @@ define Vowel [ a | e | i | o | u ] ;
 define Consonant [
 b | c | d | f | g | h | j | k | l | m | n | p | q | r | s | t | v | w | x | y | z ] ;
 
-define Alphabet Vowel* Consonant* ;
+define Alphabet Vowel | Consonant ;
 
 define AssimDelRules [
 p -> m || %^N "<"* _ ,, %^N -> 0 || _ "<"* p ]
