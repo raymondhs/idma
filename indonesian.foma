@@ -1,5 +1,9 @@
-define Alphabet [
-a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z ] ;
+define Vowel [ a | e | i | o | u ] ;
+
+define Consonant [
+b | c | d | f | g | h | j | k | l | m | n | p | q | r | s | t | v | w | x | y | z ] ;
+
+define Alphabet Vowel* Consonant* ;
 
 define AssimDelRules [
 p -> m || %^N "<"* _ ,, %^N -> 0 || _ "<"* p ]
@@ -12,11 +16,15 @@ p -> m || %^N "<"* _ ,, %^N -> 0 || _ "<"* p ]
 .o.
 [ s -> n y || %^N "<"* _ ,, %^N -> 0 || _ "<"* s ]
 .o.
+%^N -> n g || _ "<"* [ a | e | i | o | u | g | h | k h ]
+.o.
 [ k -> n g || %^N "<"* _ ,, %^N -> 0 || _ "<"* k ]
 .o.
-%^N -> n g || _ "<"* [ a | e | i | o | u | g | h ]
+%^N -> 0 || _ "<"* [ m | n | l | r | w | y ]
 .o.
-%^N -> 0 || _ "<"* [ m | n | l | r | w | y ] ;
+r -> 0 || [ b | p | t ] e _ r
+.o.
+r -> 0 || [ b | p ] e _ Consonant e r Consonant;
 
 read lexc < indonesian.lexc
 
@@ -33,3 +41,5 @@ define PreEq intermediatenet .o. %^R -> [Alphabet]* .o. InsertHyphen ;
 define RemoveBrackets "<"|">" -> 0 ;
 
 read regex _eq(PreEq,"<",">") .o. RemoveBrackets ;
+
+save stack indonesian.fst

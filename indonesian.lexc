@@ -1,9 +1,10 @@
 Multichar_Symbols
 
 ! tag suffixes for the upper side
-+Bare +-an +ke-an +per-an +peN-an
-+meN- +meN-i +redup[-]
-+meN-kan +meN[redup[-]] +meN[redup[-]]kan
++Bare +-an +redup[-] +ke-an +ber-an +per-an +peN-an
++meN- +meN-i +meN-kan +meN[redup[-]] +meN[redup[-]]kan
++ber- +per- +ter- +peN-
++meNper- +peNper- +peNper-an
 
 ! flag diacritics
 @P.PREF.peN@ @R.PREF.peN@
@@ -14,6 +15,15 @@ Multichar_Symbols
 @P.PREF.redup[-]@ @R.PREF.redup[-]@
 @P.PREF.meN@ @R.PREF.meN@
 @P.PREF.meN[redup[-]]@ @R.PREF.meN[redup[-]]@
+@P.PREF.meNper@ @R.PREF.meNper@
+@P.PREF.peNper@ @R.PREF.peNper@
+@P.PREF.mem@ @R.PREF.mem@
+@P.PREF.meng@ @R.PREF.meng@
+@P.PREF.menge@ @R.PREF.menge@
+@P.PREF.menge[redup[-]]@ @R.PREF.menge[redup[-]]@
+@P.PREF.bel@ @R.PREF.bel@
+@P.PREF.pel@ @R.PREF.pel@
+@P.PREF.penge@ @R.PREF.penge@
 @D.PREF@
 
 ! morphophoneme
@@ -35,29 +45,101 @@ Stems ;
 < [ 0 .x. "<" ] "@P.PREF.redup[-]@" > Stems ;
 < [ 0 .x. m e "^N" ] "@P.PREF.meN@" > Stems ;
 < [ 0 .x. m e "^N" "<" ] "@P.PREF.meN[redup[-]]@" > Stems ;
+< [ 0 .x. m e m p e r ] "@P.PREF.meNper@" > Stems ;
+< [ 0 .x. p e m e r ] "@P.PREF.peNper@" > Stems ;
+< [ 0 .x. m e m ] "@P.PREF.mem@" > Stems ;
+< [ 0 .x. m e n g ] "@P.PREF.meng@" > Stems ;
+< [ 0 .x. m e n g e ] "@P.PREF.menge@" > Stems ;
+< [ 0 .x. m e "<" n g e ] "@P.PREF.menge[redup[-]]@" > Stems ;
+< [ 0 .x. b e l ] "@P.PREF.bel@" > Stems ;
+< [ 0 .x. p e l ] "@P.PREF.pel@" > Stems ;
+< [ 0 .x. p e n g e ] "@P.PREF.penge@" > Stems ;
 
 LEXICON Stems
-ajar bare ;
-ajar meN- ;
-ajar meN-kan ;
-capai meN- ;
-curah meN[redup[-]] ;
-dapat meN- ;
-baik redup[-] ;
+kecil bare ;
 bagi -an ;
-bagi meN[redup[-]] ;
-baka meN- ;
+giat ke-an ;
+usaha per-an ;
+
+renang ber- ;
+rusak per- ;
+rasa ter- ;
+serta ber- ;
+
+terbang ber-an ;
+kerja per-an ;
+
+pergok ter- ;
+percaya ter- ;
+
+ajar bel- ;
+ajar pel-an ;
+
+ajar meN- ;
+ekspor meN- ;
+erang meN- ;
+olah meN- ;
+urus meN- ;
+
+beli meN- ;
 pakai meN- ;
-paksa meN[redup[-]] ;
-payah meN[redup[-]]kan ;
-taman meN- ;
-tampar meN[redup[-]] ;
-galah meN- ;
-kaji meN- ;
-kuyuh meN[redup[-]] ;
-salak meN- ;
-sama meN[redup[-]] ;
-maki meN- ;
+fitnah meN- ;
+
+dengar meN- ;
+tulis meN- ;
+cari meN- ;
+jual meN- ;
+
+syarat meN-kan ;
+ziarah meN-i ;
+
+sewa meN- ;
+
+ganggu meN- ;
+kirim meN- ;
+hilang meN- ;
+khawatir meN-kan ;
+
+lihat meN- ;
+rasa meN- ;
+masak meN- ;
+nanti meN- ;
+nyanyi meN- ;
+nganga meN- ;
+wakil meN-i ;
+yakin meN-i ;
+
+tulis peN- ;
+tulis peN-an ;
+
+lebar meNper- ;
+oleh meNper- ;
+
+percaya mem- ;
+
+satu peNper- ;
+oleh peNper-an ;
+perkosa peN- ;
+
+kritik meng- ;
+
+bom menge- ;
+pel menge- ;
+cek menge- ;
+sah menge-kan ;
+rem menge- ;
+
+bom penge-an ;
+sah penge-an ;
+
+bagi meN[redup[-]] ;
+amat meN[redup[-]]i ;
+minta meN[redup[-]] ;
+pijit meN[redup[-]] ;
+tulis meN[redup[-]] ;
+kayuh meN[redup[-]] ;
+
+cek menge[redup[-]] ;
 
 LEXICON bare
 < "+Bare":0 "@D.PREF@" > # ;
@@ -66,9 +148,24 @@ LEXICON -an
 < [ "+-an" .x. a n ] "@D.PREF@" > # ;
 ! simple suffix blocks all prefixes
 
+LEXICON ber-
+< "+ber-":0 "@R.PREF.ber@" > # ;
+
+LEXICON ter-
+< "+ter-":0 "@R.PREF.ter@" > # ;
+
+LEXICON per-
+< "+per-":0 "@R.PREF.per@" > # ;
+
+LEXICON peN-
+< "+peN-":0 "@R.PREF.peN@" > # ;
+
 LEXICON ke-an
 < [ "+ke-an" .x. a n ] "@R.PREF.ke@" > # ;
 ! circumfix requires ke-
+
+LEXICON ber-an
+< [ "+ber-an" .x. a n ] "@R.PREF.ber@" > # ;
 
 LEXICON per-an
 < [ "+per-an" .x. a n ] "@R.PREF.per@" > # ;
@@ -89,8 +186,47 @@ LEXICON redup[-]
 LEXICON meN-kan
 < [ "+meN-kan" .x. k a n ] "@R.PREF.meN@" > # ;
 
+LEXICON meNper-
+< "+meNper-":0 "@R.PREF.meNper@" > # ;
+
+LEXICON peNper-
+< "+peNper-":0 "@R.PREF.peNper@" > # ;
+
+LEXICON peNper-an
+< [ "+peNper-an" .x. a n ] "@R.PREF.peNper@" > # ;
+
 LEXICON meN[redup[-]]
 < [ "+meN[redup[-]]" .x. ">" "<" "^R" ">" ] "@R.PREF.meN[redup[-]]@" > # ;
 
 LEXICON meN[redup[-]]kan
 < [ "+meN[redup[-]]kan" .x. ">" "<" "^R" ">" k a n ] "@R.PREF.meN[redup[-]]@" > # ;
+
+LEXICON meN[redup[-]]i
+< [ "+meN[redup[-]]i" .x. ">" "<" "^R" ">" i ] "@R.PREF.meN[redup[-]]@" > # ;
+
+LEXICON mem-
+< "+meN-":0 "@R.PREF.mem@" > # ;
+
+LEXICON meng-
+< "+meN-":0 "@R.PREF.meng@" > # ;
+
+LEXICON menge-
+< "+meN-":0 "@R.PREF.menge@" > # ;
+
+LEXICON menge-kan
+< [ "+meN-kan" .x. k a n ] "@R.PREF.menge@" > # ;
+
+LEXICON menge[redup[-]]
+< [ "+meN[redup[-]]" .x. ">" "<" "^R" ">" ] "@R.PREF.menge[redup[-]]@" > # ;
+
+LEXICON bel-
+< "+ber-":0 "@R.PREF.bel@" > # ;
+
+LEXICON pel-an
+< [ "+per-an" .x. a n ] "@R.PREF.pel@" > # ;
+
+LEXICON penge-
+< "+peN-":0 "@R.PREF.penge@" > # ;
+
+LEXICON penge-an
+< [ "+peN-an" .x. a n ] "@R.PREF.penge@" > # ;
